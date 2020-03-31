@@ -8,7 +8,7 @@
 
 import socket
 
-UDP_ADDRESS = '10.10.240.79'
+UDP_ADDRESS = '10.10.117.69'
 # UDP_ADDRESS = '127.0.0.1'
 UDP_PORT = 9000
 # MESSAGE = sys.argv[1]
