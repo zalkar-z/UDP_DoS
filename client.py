@@ -21,11 +21,12 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 # set timeout
 sock.settimeout(5)
 
-# send out message to the server - no connect/close needed!
-sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
-print("Sent message: '{0}' to {1}".format(MESSAGE, UDP_ADDRESS))
+while 1:
+	# send out message to the server - no connect/close needed!
+	sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
+	print("Sent message: '{0}' to {1}".format(MESSAGE, UDP_ADDRESS))
 
-# receiving some updated data
-data, addr = sock.recvfrom(1024) # 1024-byte buffer size
-data = data.decode()
-print("{0} received: {1}".format(addr[0], data))
+	# receiving some updated data
+	data, addr = sock.recvfrom(1024) # 1024-byte buffer size
+	data = data.decode()
+	print("{0} received: {1}".format(addr[0], data))
