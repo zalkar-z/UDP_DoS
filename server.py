@@ -8,8 +8,8 @@
 
 import socket
 
-# UDP_ADDRESS = '10.10.117.73'
-UDP_ADDRESS = '127.0.0.1'
+UDP_ADDRESS = '0.0.0.0'
+# UDP_ADDRESS = '127.0.0.1'
 UDP_PORT = 9000
 # MESSAGE = sys.argv[1]
 
