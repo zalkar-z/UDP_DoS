@@ -22,9 +22,11 @@ sock.settimeout(5)
 
 while 1:
     start = time.time()
-	# send out message to the server - no connect/close needed!
-	sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
+    # send out message to the server - no connect/close needed!
+    sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
 
-	# receiving some updated data
-	data, addr = sock.recvfrom(1024) # 1024-byte buffer size
+    # receiving some updated data
+    data, addr = sock.recvfrom(1024) # 1024-byte buffer size
     print("Time elapsed in seconds: ", time.time() - start)
+
+    time.sleep(5)
