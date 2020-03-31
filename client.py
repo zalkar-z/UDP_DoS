@@ -27,6 +27,7 @@ while 1:
 
     # receiving some updated data
     data, addr = sock.recvfrom(1024) # 1024-byte buffer size
+    print("{0} received: {1}".format(addr[0], data))
     print("Time elapsed in seconds: ", time.time() - start)
 
     time.sleep(5)

@@ -22,7 +22,7 @@ sock.bind((UDP_ADDRESS, UDP_PORT))
 # my fancy server logic
 while 1:
     data, addr = sock.recvfrom(1024) # 1024-byte buffer size
-    print("{0} received: {1}".format(addr[0], data))
+    # print("{0} received: {1}".format(addr[0], data))
 
     # sending updated data back
     sock.sendto(data, addr)
