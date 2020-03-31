@@ -25,7 +25,5 @@ while 1:
     data = data.decode()
     print("{0} received: {1}".format(addr[0], data))
 
-    data = data + '!'
-
     # sending updated data back
     sock.sendto(data.encode(), addr)

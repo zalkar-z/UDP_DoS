@@ -7,13 +7,12 @@
 """
 
 import socket
-import sys
+import random
 
-UDP_ADDRESS = '10.10.117.69'
+UDP_ADDRESS = '10.10.117.79' # catlab#1
 # UDP_ADDRESS = '127.0.0.1'
 UDP_PORT = 9000
-MESSAGE = sys.argv[1]
-# MESSAGE = "hello"
+MESSAGE = random._urandom(1024)
 
 # create a socket -DGRAM == UDP
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -24,9 +23,6 @@ sock.settimeout(5)
 while 1:
 	# send out message to the server - no connect/close needed!
 	sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
-	print("Sent message: '{0}' to {1}".format(MESSAGE, UDP_ADDRESS))
 
 	# receiving some updated data
 	data, addr = sock.recvfrom(1024) # 1024-byte buffer size
-	data = data.decode()
-	print("{0} received: {1}".format(addr[0], data))
