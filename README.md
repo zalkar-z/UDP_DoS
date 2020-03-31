@@ -1,2 +1,2 @@
-# upd_dos
+# UDP DoS
 Denial of Service implementation using UDP
