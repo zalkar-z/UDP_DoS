@@ -1,7 +1,7 @@
 # UDP DoS
 Denial of Service implementation using UDP
 
-![architecture][architecture.png]
+![architecture](architecture.png)
 
 ## Trial #1: 6 client machines vs a single server
 
