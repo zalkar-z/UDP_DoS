@@ -1,7 +1,13 @@
 # UDP DoS
-Denial of Service implementation using UDP
 
-![architecture](architecture.png)
+Denial of Service implementation using User Datagram Protocol. Developed and tested on CATLab machines.
+
+## High-level architecture
+
+<!--- HTML markdown to center the image --->
+<p align="center">
+    <img alt="architecture" src="architecture.png" width="700px" />
+</p>
 
 ## Trial #1: 6 client machines vs a single server
 
