@@ -3,7 +3,7 @@
 """
 	server.py - UDP server that listens on UDP port 9000
 	Author: Zak Ziiaidin (zalkar@bennington.edu)
-	Date: 3/3/2020
+	Date: 3/30/2020
 """
 
 import socket

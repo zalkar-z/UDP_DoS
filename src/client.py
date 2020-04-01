@@ -3,7 +3,7 @@
 """
 	client.py - UDP client that talks to a remote server on UDP PORT 9000 and sends a simple message and measure its perfomance
 	Author: Zak Ziiaidin (zalkar@bennington.edu)
-	Date: 3/3/2020
+	Date: 3/30/2020
 """
 
 import socket
