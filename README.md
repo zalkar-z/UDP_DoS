@@ -17,11 +17,26 @@ Denial of Service implementation using User Datagram Protocol. Developed and tes
 - **Bot Client**: Bot UDP Client sends messages of 1024 bytes long to the UDP Server at very high rates. Source: [bot_client.py](src/bot_client.py)
 - **CPU Tracker**: Extra tool to track CPU usage of local machines. Used on the UDP Server during development. Source: [get_cpu.py](src/get_cpu.py)
 
-## Sample Flow
+## Using
 
-1. Start the UDP Server
-2. Start the UDP Client
-3. Server and Client should be exchanging messages at this point
-4. Add the first Bot Client
-5. Add another
-6. Our sample runs show that two bots are enough to DoS the server and time out regular client's session.
+### Getting ready
+
+1. Choose one CATLab machine to be a UDP Server. Remember its IP
+2. Choose another one to be a UDP Client. Remember its IP
+3. Choose at least two CATLab machines to be bots.
+
+### DoS in action
+
+1. Run [server.py](src/server.py) on UDP Server: `python3 server.py <ip_addr_of_udp_client>`. Don't forget to pass UDP Client's IP, since the server needs to identify the client among bots, and reply with a message.
+
+2. Run [client.py](src/client.py) on UDP Client: `python3 client.py <ip_addr_of_udp_server>`. Pass UDP Server's IP to point the client to it.
+
+3. Server and Client should be exchanging messages at this point. Client shows how fast the exchange is going every five seconds. Server will print every message received from client.
+
+4. (Optional) At this point you could also run [get_cpu.py](src/get_cpu.py) on the UDP Server in order to see how CPU usage changes right after bots are activated.
+
+5. Run [bot_client.py](src/bot_client.py) on the **first** bot machine: `python3 bot_client.py <ip_addr_of_udp_server>`. Pass UDP Server's IP to point the bot to it.
+
+6. Repeat `step#5` to add another bot.
+
+6. Our sample runs show that two bots are enough to DoS the server and timeout regular client's session. If the client is still communicating with the server, continue adding more bots, and eventually, you will crash the server.
