@@ -1,6 +1,8 @@
 # UDP DoS
 Denial of Service implementation using UDP
 
+![architecture][architecture.png]
+
 ## Trial #1: 6 client machines vs a single server
 
 - Server listens on port:9000 from all IPs, receives a message and returns it by adding an exclamation point to it.

@@ -22,8 +22,7 @@ sock.bind((UDP_ADDRESS, UDP_PORT))
 # always listen
 while 1:
     data, addr = sock.recvfrom(1024) # 1024-byte buffer size
-
-    if (addr == '10.10.117.69'):
+    if (addr[0] == '10.10.117.69'):
         print("{0} received: {1}".format(addr[0], data))
 
         # sending the same data back
