@@ -21,6 +21,7 @@ Denial of Service implementation using User Datagram Protocol. Developed and tes
 
 ### Getting ready
 
+0. Make sure you have SSH access to the CATLab and can find available IPs.
 1. Choose one CATLab machine to be a UDP Server. Remember its IP
 2. Choose another one to be a UDP Client. Remember its IP
 3. Choose at least two CATLab machines to be bots.
