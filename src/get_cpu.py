@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-	main.py - Python script to send health info of CATLab instance to a remote server 
+	get_cpu.py - prints local CPU usage every five seconds
 	Author: Zak Ziiaidin (zalkar@bennington.edu)
-	Date: 3/14/2020
+	Date: 3/30/2020
 """
 
 import psutil
