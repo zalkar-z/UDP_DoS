@@ -1,21 +1,18 @@
 # UDP DoS
-Denial of Service implementation using UDP
 
-![architecture][architecture.png]
+Denial of Service implementation using User Datagram Protocol. Developed and tested on CATLab machines.
 
-## Trial #1: 6 client machines vs a single server
+## High-level architecture
 
-- Server listens on port:9000 from all IPs, receives a message and returns it by adding an exclamation point to it.
+<!--- HTML markdown to center the image --->
+<p align="center">
+    <img alt="architecture" src="architecture.png" width="700px" />
+</p>
 
-- Clients send packages endlessly using `while True` statement and print both sent and received packages.
 
-- Package was a simple `hello` message, nothing fancy or big to process.
+## Parts
 
-- Using all bots in my possession, I was able to get Victim's CPU read 25% load from 1% before the flood.
-
-**Next steps:**
-
-- Bots: send BIG packages, don't print
-- Tracker client: implement a timer to measure the UDP connection latency.
-
+- **UDP Server**: Simple UDP server listenning to all IPs on port 9000. Source: [server.py](src/server.py)
+- **UDP Client**: Simple UDP client communicating with the UDP Server via short messages. Source: [client.py](src/client.py)
+- **Bot Client**: Bot UDP Client sends messages of 1024 bytes long to the UDP Server at very high rates. Source: [bot_client.py](src/bot_client.py)
 
