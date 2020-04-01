@@ -8,9 +8,10 @@
 
 import socket
 import time
+import sys
 
-# catlab#1
-UDP_ADDRESS = '10.10.117.79' 
+# server IP
+UDP_ADDRESS = sys.argv[1]
 # exposing port:9000
 UDP_PORT = 9000
 # generating dummy bytes to overload server's capacity fast
