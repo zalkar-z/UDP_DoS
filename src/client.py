@@ -12,8 +12,10 @@ import sys
 
 # server IP
 UDP_ADDRESS = sys.argv[1]
+
 # exposing port:9000
 UDP_PORT = 9000
+
 # generating dummy bytes to overload server's capacity fast
 MESSAGE = "hello" 
 
@@ -26,13 +28,16 @@ sock.settimeout(5)
 while 1:
     # start timer
     start = time.time()
+
     # send out message to the server - no connect/close needed!
     sock.sendto(MESSAGE.encode(), (UDP_ADDRESS, UDP_PORT))
 
     # receiving some updated data
     data, addr = sock.recvfrom(1024) # 1024-byte buffer size
+
     # print received data
     print("{0} received: {1}".format(addr[0], data))
+    
     # print elapsed time
     print("Time elapsed in seconds: ", time.time() - start)
 
