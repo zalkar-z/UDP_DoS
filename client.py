@@ -26,7 +26,7 @@ while 1:
     # start timer
     start = time.time()
     # send out message to the server - no connect/close needed!
-    sock.sendto(MESSAGE, (UDP_ADDRESS, UDP_PORT))
+    sock.sendto(MESSAGE.decode(), (UDP_ADDRESS, UDP_PORT))
 
     # receiving some updated data
     data, addr = sock.recvfrom(1024) # 1024-byte buffer size
