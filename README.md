@@ -40,4 +40,8 @@ Denial of Service implementation using User Datagram Protocol. Developed and tes
 
 6. Repeat `step#5` to add another bot.
 
-6. Our sample runs show that two bots are enough to DoS the server and timeout regular client's session. If the client is still communicating with the server, continue adding more bots, and eventually, you will crash the server.
+7. Our sample runs show that two bots are enough to DoS the server and timeout regular client's session. If the client is still communicating with the server, continue adding more bots, and eventually, you will crash the server.
+
+### Defense Against DoS in Action
+
+(4/2/2020) The server now has a rate limiter built in that by utilizing the system's firewalls (iptables on Linux and only Linux for now) would block whichever IP is sending too many requests in a short amount of time.
