@@ -11,8 +11,8 @@ import sys
 import iptc
 import time
 
-MAX_PACKET_LIMIT = 10
-MAX_TIME_INTERVAL = 20
+MAX_PACKET_LIMIT = 2
+MAX_TIME_INTERVAL = 1
 
 # listening to any IP
 UDP_ADDRESS = '0.0.0.0'
@@ -64,14 +64,19 @@ while 1:
 
     #deprecating packet sent
     ip_limit[ip_addr][0] -= 1
-    time.sleep(0.1)
     #the sleep here is so that the logic below could be completed
-    #if not then the api would spam iptables would 84 new rules
+    #if not then the api would spam iptables with 84 new rules
     if ip_limit[ip_addr][0] < 1.0:
         if ip_addr not in ip_blacklist:
-            chain = iptc.Chain(iptc.Table(iptc.Table.FILTER), "INPUT")
+            #changing to MANGLE table and PREROUTING through advice from
+            #https://javapipe.com/blog/iptables-ddos-protection/
+            chain = iptc.Chain(iptc.Table(iptc.Table.MANGLE), "PREROUTING")
             rule = iptc.Rule()
             rule.src = ip_addr
+            rule.protocol = "udp"
+            match = iptc.Match(rule, "udp")
+            match.dport = str(UDP_PORT)
+            rule.add_match(match)
             rule.target = iptc.Target(rule, "DROP")
             chain.insert_rule(rule)
 
@@ -80,7 +85,7 @@ while 1:
 
 
     #if (addr[0] == UDP_CLIENT):
-    print("{0} received: {1}".format(ip_addr, data))
+    print("Message received from {0}".format(ip_addr))
 
     # sending the same data back
     sock.sendto(data, addr)

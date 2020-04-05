@@ -23,7 +23,7 @@ MESSAGE = "hello"
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # set timeout
-sock.settimeout(5)
+sock.settimeout(10)
 
 while 1:
     # start timer
@@ -37,9 +37,9 @@ while 1:
 
     # print received data
     print("{0} received: {1}".format(addr[0], data))
-    
+
     # print elapsed time
     print("Time elapsed in seconds: ", time.time() - start)
 
     # wait five seconds and repeat
-    time.sleep(5)
+    time.sleep(1)
