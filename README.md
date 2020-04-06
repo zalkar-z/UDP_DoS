@@ -2,6 +2,10 @@
 
 Denial of Service implementation using User Datagram Protocol. Developed and tested on CATLab machines.
 
+**Class:** CS 4280: Distributed Systems 
+
+**Developers:** Quang and Zak
+
 ## High-level architecture
 
 <!--- HTML markdown to center the image --->
