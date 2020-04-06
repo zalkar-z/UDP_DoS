@@ -28,7 +28,8 @@ Denial of Service implementation using User Datagram Protocol. Developed and tes
 
 ### DoS in action
 
-1. Run [server.py](src/server.py) on UDP Server: `python3 server.py <ip_addr_of_udp_client>`. Don't forget to pass UDP Client's IP, since the server needs to identify the client among bots, and reply with a message.
+1. Run [install.sh](src/install.sh) script on UDP server. This would install all the needed components and run the server on the machine.
+As of the latest commit, the server would instead listen to all clients, including bots. This would help to showcase better what exactly were the steps taken in an attempt to stop the attacks.
 
 2. Run [client.py](src/client.py) on UDP Client: `python3 client.py <ip_addr_of_udp_server>`. Pass UDP Server's IP to point the client to it.
 
@@ -45,3 +46,11 @@ Denial of Service implementation using User Datagram Protocol. Developed and tes
 ### Defense Against DoS in Action
 
 (4/2/2020) The server now has a rate limiter built in that by utilizing the system's firewalls (iptables on Linux and only Linux for now) would block whichever IP is sending too many requests in a short amount of time.
+
+(4/6/2020) (Q-Hx) Despite the fact that the server is working as expected, it is still a failure overall on the defense side. The IPs are indeed blocked, as the server would stop receiving package from any clients that violate the rate limiter.
+
+However, due to the fact that the protocol is UDP, my assumption is that the server would still have already received the packet before dropping it. The result is that the bots would still be able to throttle the bandwidth (or block the port? whichever it is) and block the client from being able to make a connection.
+
+Some solutions that we have discussed include installing a proxy server or implement a load balancer. Both of these seem to be overkill for the amount of time we have and the amount of skill we possess. For a future note, the most common advice I have seen on the Internet on how to prevent an UDP flood attack would be to prevent it at the very edge (upstream, however you call it) of the network.
+
+I am definitely interested in being able to improve upon this, though again,we might do something similar to that in the future anyways, so what I'd say is that this served as a great learning experience.
